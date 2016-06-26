@@ -2,10 +2,10 @@ project('arduino cobol', 'c', 'cpp')
 
 cobc = find_program('cobc')
 
-cfile = custom_target('helloc',
-  input : 'hello.cob',
-  output : ['hello.c', 'hello.c.h'],
+cfile = custom_target('arduinoc',
+  input : 'arduino.cob',
+  output : ['arduinoc.c', 'arduinoc.c.h'],
   command : [cobc, '-C', '-o', '@OUTPUT0@', '@INPUT@'],
   )
 
-executable('hello', cfile, 'cobmain.c', 'libcob.c')
+executable('arducob', cfile, 'cobmain.c', 'libcob.c')

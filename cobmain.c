@@ -1,7 +1,6 @@
-int hello__world();
+int arduino();
 
 int main(int argc, char **argv) {
-    hello__world();
-    hello__world();
+    arduino();
     return 0;
 }
