@@ -3,6 +3,8 @@
 #include<assert.h>
 #include<stdarg.h>
 #include<stdlib.h>
+#include<unistd.h>
+#include<string.h>
 
 struct cob_module *cob_current_module;
 int cob_initialized = 1;
@@ -34,11 +36,6 @@ void cob_display(const int a, const int b, const int c, ...) {
     printf("%s\n", cf->data);
 }
 
-void *cob_malloc (const size_t i) {
-    printf("Cob_malloc called.\n");
-    return malloc(i);
-}
-
 extern int cob_cmp_u32_binary(const unsigned char *e, const int i) {
     int val= *(const int *)(e);
     if(val < i)
@@ -46,4 +43,28 @@ extern int cob_cmp_u32_binary(const unsigned char *e, const int i) {
     if(val > i)
         return 1;
     return 0;
+}
+
+void sleeping() {
+    usleep(500000);
+}
+
+void setlcd(const int *index, const int *offset, const char *msg) {
+    for(int i=0; i < *offset; i++) {
+        printf(" ");
+    }
+    printf("%s\n", msg);
+}
+
+void clearlcd() {
+}
+
+void *cob_resolve_1(const char *funcname) {
+    if(strcmp(funcname, "sleeping") == 0)
+        return (void*) sleeping;
+    if(strcmp(funcname, "setlcd") == 0)
+        return (void*) setlcd;
+    if(strcmp(funcname, "clearlcd") == 0)
+        return (void*) clearlcd;
+    assert(0);
 }

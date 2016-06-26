@@ -59,8 +59,8 @@ int unlikely(int f);
 void cob_check_version(const char *, const char *, const int);
 void cob_set_cancel(const char *, void *, void *);
 extern void cob_display (const int, const int, const int, ...);
-extern void *cob_malloc (const size_t);
 extern int cob_cmp_u32_binary(const unsigned char *, const int);
+extern void *cob_resolve_1(const char *);
 
 #define cob_stop_run(x) return 0
 
