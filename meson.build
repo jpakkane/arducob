@@ -1,5 +1,6 @@
 project('arduino cobol', 'c', 'cpp',
   default_options : ['buildtype=minsize'],
+  license : 'GPLv3+',
   )
 
 assert(meson.is_cross_build(), 'Arduino projects can only be built in a cross build environment.')
