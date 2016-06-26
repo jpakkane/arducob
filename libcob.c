@@ -1,6 +1,7 @@
 #include<libcob.h>
 #include<stdio.h>
 #include<assert.h>
+#include<stdarg.h>
 
 struct cob_module *cob_current_module;
 int cob_initialized = 1;
@@ -23,5 +24,11 @@ void cob_set_cancel(const char *a, void *b, void *c) {
 }
 
 void cob_display(const int a, const int b, const int c, ...) {
-    printf("x\n");
+    va_list arguments;
+    cob_field *cf;
+
+    va_start(arguments, c);
+    cf = va_arg ( arguments, cob_field* );
+    va_end (arguments);
+    printf("%s\n", cf->data);
 }
