@@ -3,8 +3,9 @@
 #include<assert.h>
 #include<stdarg.h>
 #include<stdlib.h>
-#include<unistd.h>
 #include<string.h>
+
+#include<ardulib.h>
 
 struct cob_module *cob_current_module;
 int cob_initialized = 1;
@@ -45,20 +46,6 @@ extern int cob_cmp_u32_binary(const unsigned char *e, const int i) {
     return 0;
 }
 
-void sleeping() {
-    usleep(500000);
-}
-
-void setlcd(const int *index, const int *offset, const char *msg) {
-    for(int i=0; i < *offset; i++) {
-        printf(" ");
-    }
-    printf("%s\n", msg);
-}
-
-void clearlcd() {
-}
-
 void *cob_resolve_1(const char *funcname) {
     if(strcmp(funcname, "sleeping") == 0)
         return (void*) sleeping;
@@ -67,4 +54,5 @@ void *cob_resolve_1(const char *funcname) {
     if(strcmp(funcname, "clearlcd") == 0)
         return (void*) clearlcd;
     assert(0);
+    return 0;
 }

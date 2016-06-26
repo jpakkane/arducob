@@ -19,11 +19,6 @@
             B-PARA.
             CALL "sleeping".
             CALL "clearlcd".
-            IF TICKS > 22 THEN
-                MOVE 0 TO TICKS
-            ELSE
-                ADD 1 TO TICKS
-            END-IF.
             IF TICKS <= 11 THEN
                 MOVE TICKS TO OFFSET1
             ELSE
@@ -34,5 +29,9 @@
             SUBTRACT OFFSET1 FROM OFFSET2.
             CALL "setlcd" USING INDEX1, OFFSET1, CTXT.
             CALL "setlcd" USING INDEX2, OFFSET2, CTXT.
-            ADD 1 TO WS-CNT.
+            IF TICKS > 20 THEN
+                MOVE 0 TO TICKS
+            ELSE
+                ADD 1 TO TICKS
+            END-IF.
 

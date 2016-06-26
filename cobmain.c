@@ -1,6 +1,11 @@
 int arduino();
 
-int main(int argc, char **argv) {
+#include<ardulib.h>
+
+void setup() {
+    libsetup();
+}
+
+void loop() {
     arduino();
-    return 0;
 }
