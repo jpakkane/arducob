@@ -1,8 +1,8 @@
 # Running COBOL code on Arduino with Meson
 
-Who says COBOL is only for boring banking, insurance and paycheck
-evaluation?  This project demonstrates how you can use it to do
-embedded code on an Arduino microcontroller.
+Who says COBOL is only suitable for boring bank, insurance and
+paycheck applications?  This project demonstrates how you can use it
+to do embedded code on an Arduino microcontroller.
 
 ## Requirements
 
