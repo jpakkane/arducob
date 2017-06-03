@@ -1,7 +1,7 @@
 # Running COBOL code on Arduino with Meson
 
 Who says COBOL is only suitable for boring bank, insurance and
-paycheck applications?  This project demonstrates how you can use it
+payroll applications?  This project demonstrates how you can use it
 to do embedded code on an Arduino microcontroller.
 
 ## Requirements
@@ -19,12 +19,16 @@ to do embedded code on an Arduino microcontroller.
 
 ## Other things of note
 
-Requires [a branch of
-Meson](https://github.com/mesonbuild/meson/pull/618) that has not been
-merged to master at the time of writing.
-
 The scripts assume Linux and that your Arduino is in `/dev/ttyACM0`.
+
+The code was tested with the GNU Cobol that was in Ubuntu repos at the
+time when the project was created. If GNU Cobol has changed its
+internals this project might fail to compile. The reason is that this
+application has its own, extremely minimal implementation of the GNU
+Cobol runtime. It can't use the standard version because of space
+constraints.
 
 ## Going deeper
 
-How the system works is explained in detail in [this blog post](http://nibblestew.blogspot.com/2016/06/running-cobol-on-arduino-using-meson.html).
+How the system works is explained in detail in [this blog
+post](http://nibblestew.blogspot.com/2016/06/running-cobol-on-arduino-using-meson.html).
